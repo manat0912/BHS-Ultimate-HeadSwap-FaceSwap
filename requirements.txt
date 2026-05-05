@@ -80,7 +80,9 @@ pyreadline3==3.4.1
 PySide6==6.8.0
 PySocks==1.7.1
 python-dateutil==2.8.2
+pyqt-toast-notification==1.3.2
 PyYAML==6.0.1
+qdarkstyle==3.2.3
 qudida==0.0.4
 requests==2.31.0
 requests-oauthlib==1.3.1
