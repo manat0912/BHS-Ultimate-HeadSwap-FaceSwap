@@ -58,6 +58,7 @@ module.exports = {
       when: "{{gpu === 'nvidia'}}",
       method: "shell.run",
       params: {
+        bluefairy: "off",
         venv: "env",
         path: "app",
         message: [
