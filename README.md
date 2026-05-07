@@ -27,7 +27,7 @@ A 1-click installer and launcher for **BHS Ultimate HeadSwap & FaceSwap**, built
 1. Click **Start** to launch the Gradio Web UI.
 2. The UI will start locally at `http://127.0.0.1:7860`.
 3. Select your desired tool from the tabs:
-   - **Flux/Qwen High-Fidelity (Head Swap)**: For photorealistic, high-quality structure and expression replication.
+   - **Flux(Head Swap)**: For photorealistic, high-quality structure and expression replication.
    - **Viso Fast Swap (Image)**: For rapid, single-image face swapping.
    - **Viso Fast Swap (Video)**: For smooth, frame-by-frame video face swapping.
 
