@@ -4,15 +4,14 @@ A 1-click installer and launcher for **BHS Ultimate HeadSwap & FaceSwap**, built
 
 ## Features
 
-- **Flux 2 Klein 4B/9B High-Fidelity Swap**: Cutting-edge face and head swapping using the powerful Flux models. 
-- **Qwen Image Edit 2509/2511**: Deep integration with Qwen Image Edit for flawless lighting, expression, and structural matching.
+- **Flux 2 Klein 4B
 - **VisoMaster Fast Face Swap**: Includes blazing fast image and video swapping via the VisoMaster engine.
 - **Multiple AI Models Supported**: Comes out of the box with:
   - Inswapper128
   - SimSwap512
   - GhostFace (v1, v2, v3)
   - CSCS
-- **Advanced Tools Auto-Cloned**: Automatically downloads and installs dependencies from `BFS-Best-Face-Swap`, `head_swap_qwen_edit`, `SwapAnyHead`, `VisoMaster`, and `DeepFaceLab`.
+- **Advanced Tools Auto-Cloned**: Automatically downloads and installs dependencies from `BFS-Best-Face-Swap`, `SwapAnyHead`, `VisoMaster`.
 
 ## Installation
 
