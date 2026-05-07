@@ -35,7 +35,6 @@ A 1-click installer and launcher for **BHS Ultimate HeadSwap & FaceSwap**, built
 
 - If you encounter any issues during installation, check the **logs** folder in the Pinokio UI.
 - Ensure your system meets the requirements for running PyTorch with CUDA (NVIDIA GPU recommended).
-- If the Flux 9B model fails to load, ensure you have the necessary Hugging Face access tokens or fallback to the 4B model as configured.
 
 ---
 *Based on BFS - Best Face Swap, VisoMaster, and SwapAnyHead.*
