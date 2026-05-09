@@ -123,9 +123,9 @@ def flux_face_swap(
 
     return image, seed
 
-def unload_flux_model():
+def unload_flux_model(*args):
     global pipe, current_lora, current_model
-    if pipe is not None:
+    if 'pipe' in globals() and pipe is not None:
         print("Unloading Flux model...")
         pipe.to("cpu") 
         del pipe
@@ -137,10 +137,11 @@ def unload_flux_model():
         torch.cuda.empty_cache()
         torch.cuda.ipc_collect()
         print("VRAM cleared.")
+    return ""
 
-def unload_viso_engine():
+def unload_viso_engine(*args):
     global viso
-    if viso is not None:
+    if 'viso' in globals() and viso is not None:
         print("Unloading Viso Engine...")
         del viso
         viso = None
@@ -148,6 +149,7 @@ def unload_viso_engine():
         gc.collect()
         torch.cuda.empty_cache()
         print("Viso VRAM cleared.")
+    return ""
 
 def viso_swap_image(source_img, target_img, model_name, restorer_type, restorer_blend, fidelity_weight):
     v = get_viso()
@@ -193,6 +195,7 @@ The replaced head must seamlessly match Picture 1's lighting and expression whil
 
 with gr.Blocks(title="BHS Ultimate HeadSwap") as demo:
     gr.Markdown("# 🧬 BHS Ultimate HeadSwap & FaceSwap")
+    vram_status = gr.Textbox(visible=False)
     
     with gr.Tabs():
         with gr.TabItem("Flux High-Fidelity (Head Swap)") as flux_tab:
@@ -292,7 +295,6 @@ with gr.Blocks(title="BHS Ultimate HeadSwap") as demo:
                     viso_v_btn = gr.Button("Fast Swap Video", variant="primary")
                 with gr.Column():
                     viso_v_output = gr.Video(label="Result Video")
-                    vram_status = gr.Textbox(visible=False)
             viso_v_btn.click(
                 fn=viso_swap_video,
                 inputs=[viso_v_source, viso_v_target, viso_v_model, viso_v_restorer, viso_v_blend, viso_v_fidelity],
@@ -304,10 +306,30 @@ with gr.Blocks(title="BHS Ultimate HeadSwap") as demo:
         fn=unload_flux_model,
         inputs=[],
         outputs=[vram_status]
+    ).then(
+        fn=unload_viso_engine,
+        inputs=[],
+        outputs=[vram_status]
+    )
+
+    viso_model.change(
+        fn=unload_viso_engine,
+        inputs=[],
+        outputs=[vram_status]
     )
 
     viso_video_tab.select(
         fn=unload_flux_model,
+        inputs=[],
+        outputs=[vram_status]
+    ).then(
+        fn=unload_viso_engine,
+        inputs=[],
+        outputs=[vram_status]
+    )
+
+    viso_v_model.change(
+        fn=unload_viso_engine,
         inputs=[],
         outputs=[vram_status]
     )
