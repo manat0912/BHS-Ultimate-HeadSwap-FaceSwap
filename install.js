@@ -87,7 +87,8 @@ module.exports = {
     {
       method: "hf.download",
       params: {
-        "_": [ "tonera/FLUX.2-klein-4B-fp8-diffusers" ]
+        "_": [ "tonera/FLUX.2-klein-4B-fp8-diffusers" ],
+        token: false
       }
     },
     {
